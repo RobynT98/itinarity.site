@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontakt – Itinarity</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand" aria-label="Itinarity start">Itinarity</a>
+      <ul class="nav-links">
+        <li><a href="blogg.html">Blogg</a></li>
+        <li><a class="active" href="kontakt.html">Kontakt</a></li>
+        <li><a class="btn-pill" href="blogg.html#nytt">Blogginlägg</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero hero--thin">
+    <div class="container">
+      <h1>Kontakt</h1>
+      <p class="lead">Frågor, förslag eller partnerskap? Hör av dig.</p>
+    </div>
+  </section>
+
+  <main class="container space-y">
+    <div class="grid grid-2">
+      <div class="card">
+        <h2>Mejl</h2>
+        <p><strong>Support:</strong> support@itinarity.app</p>
+        <p><strong>Press & samarbete:</strong> press@itinarity.app</p>
+        <p><strong>Fakturor:</strong> ekonomi@itinarity.app</p>
+      </div>
+      <div class="card">
+        <h2>Kontaktformulär</h2>
+        <form class="stack-sm" onsubmit="event.preventDefault(); alert('Tack! Vi hör av oss.');">
+          <label>Din e-post
+            <input type="email" required placeholder="namn@exempel.se" />
+          </label>
+          <label>Ämne
+            <input type="text" required placeholder="Vad gäller det?" />
+          </label>
+          <label>Meddelande
+            <textarea rows="5" required placeholder="Skriv ditt meddelande här…"></textarea>
+          </label>
+          <button class="btn" type="submit">Skicka</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Itinarity. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

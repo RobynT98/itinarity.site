@@ -597,3 +597,65 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
+/* --- Global helpers --- */
+.container { max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+.space-y > * + * { margin-top: 1.25rem; }
+.muted { color: rgba(0,0,0,.6); font-size: .95rem; }
+.lead { font-size: 1.1rem; }
+
+/* --- Grid presets --- */
+.grid { display: grid; gap: 1.25rem; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* --- Cards --- */
+.card {
+  background: #f7efe7;
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 12px 28px rgba(69,38,14,.10), 0 4px 8px rgba(69,38,14,.08);
+  border: 1px solid rgba(69,38,14,.07);
+}
+
+/* --- Nav --- */
+.nav { display: flex; align-items: center; justify-content: space-between; }
+.nav .brand { font-weight: 700; letter-spacing:.2px; text-decoration:none; color: #3b2416; }
+.nav-links { display: flex; gap: .75rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a { text-decoration: none; padding: .5rem .9rem; border-radius: 10px; }
+.nav-links a.active { background: #6b3e24; color: #fff; }
+.btn-pill { background: #d6a44d; color: #2c1a10; border-radius: 999px; padding: .5rem 1rem; text-decoration: none; }
+
+/* --- Hero --- */
+.hero { padding: 2rem 0; background: linear-gradient(#e8c88d,#d6b37a); border-bottom: 1px solid rgba(0,0,0,.08); }
+.hero--thin { padding: 1.5rem 0; }
+.hero h1 { margin: 0; }
+
+/* --- Breadcrumbs --- */
+.breadcrumbs { font-size: .9rem; margin-bottom: .35rem; }
+.breadcrumbs a { color: #5a3a20; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+
+/* --- Legal pages --- */
+.legal { display: grid; grid-template-columns: 280px 1fr; gap: 1.25rem; }
+.legal .toc { position: sticky; top: 1rem; align-self: start; }
+.legal h2 { margin-top: .25rem; }
+@media (max-width: 1000px) { .legal { grid-template-columns: 1fr; } }
+
+/* --- Forms --- */
+.stack-sm > * + * { margin-top: .75rem; }
+input, textarea {
+  width: 100%; border: 1px solid rgba(0,0,0,.15); border-radius: 10px;
+  padding: .7rem .85rem; background: #fffaf6;
+}
+.btn {
+  display: inline-block; background: #6b3e24; color: #fff; border: none;
+  padding: .6rem 1rem; border-radius: 10px; cursor: pointer;
+}
+.btn:hover { filter: brightness(1.05); }
+
+/* --- Footer spacing fix --- */
+.site-footer { margin-top: 2rem; padding: 1rem 0; background: #4a2b1a; color:#fff; }
