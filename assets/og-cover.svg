@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1f4d8c"></rect>
+  <rect width="1200" height="630" fill="url(#grad)" opacity="0.8"></rect>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f4d8c"></stop>
+      <stop offset="100%" stop-color="#0b274d"></stop>
+    </linearGradient>
+  </defs>
+  <text x="50%" y="45%" text-anchor="middle" fill="#fff" font-size="72" font-family="Arial, Helvetica, sans-serif" font-weight="bold">ITINARITY</text>
+  <text x="50%" y="60%" text-anchor="middle" fill="#e6eef8" font-size="32" font-family="Arial, Helvetica, sans-serif">Planera • Skapa • Exportera</text>
+</svg>
