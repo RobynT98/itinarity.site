@@ -659,3 +659,8 @@ input, textarea {
 
 /* --- Footer spacing fix --- */
 .site-footer { margin-top: 2rem; padding: 1rem 0; background: #4a2b1a; color:#fff; }
+.btn-secondary{
+  background:#ffffff22; color:var(--wood);
+  border:2px solid var(--wood); box-shadow:none;
+}
+.btn-secondary:hover{ background:var(--wood); color:#fff; }

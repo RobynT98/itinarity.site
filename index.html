@@ -4,41 +4,34 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Itinarity – Snabb, Kreativ, Smart och innovativ</title>
-
-  <!-- Färger, typsnitt m.m. sköter vi i styles.css -->
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
-  <meta name="description" content="Itinarity är ett kreativt verktyg för dokument, presentationer och resplaner – snabbt, flexibelt och snyggt." />
 </head>
-
 <body>
-  <!-- Trälist/header -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">
-        <!-- Byt ut mot din riktiga logo.svg (ligger redan i assets/) -->
-        <img src="assets/logo.svg" alt="Itinarity" width="116" height="24" />
+      <a class="brand" href="index.html" aria-label="Itinarity startsida">
+        <img class="logo" src="assets/logo.svg" alt="Itinarity" />
       </a>
-      <!-- Huvudmeny -->
       <nav class="nav-actions" aria-label="Huvudmeny">
-        <a class="btn btn-dark" href="/blogg/">Blogg</a>
-        <a class="btn btn-dark" href="/kontakt/">Kontakt</a>
-        <a class="btn btn-accent" href="/blogg/nytt/">Blogginlägg</a>
+        <a class="btn btn-dark" href="blogg.html">Blogg</a>
+        <a class="btn btn-dark" href="kontakt.html">Kontakt</a>
+        <a class="btn btn-accent" href="blogg.html#nytt">Blogginlägg</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero med sand/bakgrund -->
-  <section class="hero">
+  <!-- HERO -->
+  <section class="hero" role="banner">
     <div class="container">
-      <h1 class="tagline">”Snabb, Kreativ, Smart och innovativ”</h1>
+      <h1 class="tagline">“Snabb, Kreativ, Smart och innovativ”</h1>
     </div>
   </section>
 
-  <!-- Innehåll -->
+  <!-- CONTENT -->
   <main class="main">
     <div class="container grid">
-      <!-- Roadmap -->
       <article class="card">
         <h2>Roadmap</h2>
         <ul>
@@ -49,7 +42,6 @@
         </ul>
       </article>
 
-      <!-- Funktioner -->
       <article class="card">
         <h2>Funktioner (MVP)</h2>
         <ul>
@@ -58,27 +50,28 @@
           <li>Responsiv design – funkar lika bra på mobil som dator.</li>
           <li>Tydlig mappstruktur för projekt &amp; offers.</li>
         </ul>
+        <div style="margin-top:.75rem; display:flex; gap:.5rem; flex-wrap:wrap;">
+          <a class="btn btn-secondary" href="blogg.html">Läs mer i bloggen</a>
+          <a class="btn btn-accent" href="kontakt.html">Kontakta oss</a>
+        </div>
       </article>
 
-      <!-- Legalt -->
       <aside class="card">
         <h2>Juridiskt</h2>
         <ul class="linklist">
-          <li><a href="eula.html">Slutanvändaravtal (EULA)</a></li>
-          <li><a href="terms.html">Användarvillkor (ToS)</a></li>
-          <li><a href="privacy.html">Integritetspolicy</a></li>
+          <li><a class="link" href="eula.html">Slutanvändaravtal (EULA)</a></li>
+          <li><a class="link" href="terms.html">Användarvillkor (ToS)</a></li>
+          <li><a class="link" href="privacy.html">Integritetspolicy</a></li>
         </ul>
       </aside>
     </div>
   </main>
 
-  <!-- Footer med trälist -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container foot-inner">
       <small>© 2025 Itinarity. All rights reserved.</small>
     </div>
   </footer>
-
-  <script src="script.js" defer></script>
 </body>
 </html>
