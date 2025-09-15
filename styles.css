@@ -1,99 +1,345 @@
+/* -------------------------
+   Design tokens
+------------------------- */
 :root{
-  --bg: #f7f8f5;
-  --card: #ffffff;
-  --text: #24292e;
-  --muted:#6a737d;
-  --brand:#1f4d8c;   /* blå likt loggan */
-  --brand-2:#e6eef8;
-  --shadow: 0 10px 24px rgba(0,0,0,.08);
-  --radius: 16px;
+  /* Färger (trä/sand/linne – kan bytas mot bilder om du vill) */
+  --wood-1: #4a2b1a;
+  --wood-2: #6a3b24;
+  --sand-1: #ddb173;
+  --sand-2: #cfa166;
+  --linen: #e6d3b6;
+  --paper: #faf7f2;
+
+  --ink-1: #1d1b19;     /* rubriker */
+  --ink-2: #343130;     /* brödtext */
+  --ink-3: #6b6764;     /* sekundär text */
+
+  --brand: #4a2b1a;     /* knappar/brand, kan bytas */
+  --brand-ink: #ffffff;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-1: 0 4px 14px rgba(0,0,0,.10);
+  --shadow-2: 0 10px 24px rgba(0,0,0,.12);
+
+  /* Typografi */
+  --font-sans: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  /* Skala (flytande) */
+  --step--1: clamp(.875rem, .82rem + .2vw, .95rem);
+  --step-0: clamp(1rem, .96rem + .25vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.15rem + .6vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.35rem + 1vw, 2rem);
+  --step-3: clamp(2rem, 1.7rem + 1.8vw, 2.6rem);
+
+  /* Spacing */
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --container: 1120px;
 }
 
+/* -------------------------
+   Bas
+------------------------- */
 *{ box-sizing: border-box; }
-html,body{ margin:0; padding:0; }
+html,body{ height:100%; }
 body{
-  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.55;
+  margin:0;
+  font: 400 var(--step-0)/1.6 var(--font-sans);
+  color: var(--ink-2);
+  background: var(--paper);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-.wrap{
-  width: min(100%, 1024px);
-  margin: 0 auto;
-  padding: 0 20px;
+.container{
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-2);
 }
 
-/* Header */
+h1,h2,h3,h4{ color: var(--ink-1); margin:0 0 var(--space-2); }
+h1{ font-family: var(--font-display); font-weight:700; font-size: var(--step-3); line-height:1.2; }
+h2{ font-family: var(--font-display); font-weight:700; font-size: var(--step-2); }
+h3{ font-weight:700; font-size: var(--step-1); }
+h4{ font-weight:700; font-size: var(--step-0); }
+p{ margin:0 0 var(--space-2); }
+
+.kicker{ letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-size: var(--step--1); }
+
+/* -------------------------
+   Header (trä)
+------------------------- */
 .site-header{
-  background: #fff;
-  border-bottom: 1px solid #eceff3;
-  position: sticky; top:0; z-index: 10;
+  background: linear-gradient(180deg, var(--wood-2), var(--wood-1));
+  color:#fff;
 }
-.site-header .wrap{
-  display:flex; align-items:center; justify-content:space-between;
-  height: 64px;
+.header-inner{
+  display:flex; align-items:center; gap: var(--space-2);
+  padding-block: .85rem;
 }
-.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; }
-.logo{ width:28px; height:auto; display:block; }
-.nav a{ margin-left:16px; text-decoration:none; color:var(--text); font-weight:600; }
-.nav a:hover{ color: var(--brand); }
+.brand{
+  text-decoration:none; color:#fff; display:flex; align-items:center; gap:.25rem;
+}
+.brand-mark{
+  font-family: var(--font-display);
+  font-weight:700;
+  font-size: clamp(1.1rem, .9rem + .9vw, 1.6rem);
+  letter-spacing:.02em;
+}
+.tm{ font-size:.7em; line-height:0; opacity:.9; color:#f1e6da; }
 
-/* Hero */
+.main-nav{
+  margin-left:auto; display:flex; align-items:center; gap:.75rem;
+}
+.main-nav a{
+  color:#f6eee7; text-decoration:none; padding:.35rem .5rem; border-radius:8px;
+}
+.main-nav a:hover{ background: rgba(255,255,255,.08); }
+
+/* -------------------------
+   Hero (sand)
+------------------------- */
 .hero{
-  background: linear-gradient(180deg, #fff, var(--bg));
-  padding: 64px 0 32px;
-  border-bottom: 1px solid #eceff3;
+  background:
+    linear-gradient(180deg, var(--sand-1), var(--sand-2));
+  color: var(--ink-1);
+  padding-block: clamp(2.5rem, 2rem + 4vw, 6rem);
 }
-.hero h1{
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.2;
-  color: var(--brand);
-  margin: 0 0 10px;
+.hero-inner{ text-align:center; max-width: 880px; }
+.hero .lead{ color: var(--ink-2); max-width: 52ch; margin-inline:auto; }
+.cta{ display:flex; gap:.75rem; justify-content:center; margin-top: var(--space-3); flex-wrap: wrap; }
+
+/* -------------------------
+   Buttons
+------------------------- */
+.btn{
+  --h: 44px;
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height: var(--h); padding: 0 1rem; gap:.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700; text-decoration:none; cursor:pointer;
+  border: 2px solid transparent; transition: transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
 }
-.lead{ font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); max-width: 800px; }
-.cta-row{ margin-top: 20px; display:flex; gap:12px; flex-wrap: wrap; }
+.btn:active{ transform: translateY(1px); }
+.btn:focus-visible{ outline: 3px solid #fff; outline-offset: 2px; }
+
+.btn-primary{
+  background: var(--brand); color: var(--brand-ink);
+  box-shadow: var(--shadow-1);
+}
+.btn-primary:hover{ box-shadow: var(--shadow-2); }
+
+.btn-ghost{
+  color: var(--brand); background: transparent; border-color: color-mix(in oklab, var(--brand) 30%, white);
+}
+.btn-ghost:hover{ background: color-mix(in oklab, var(--brand) 8%, white); }
+
+/* -------------------------
+   Cards / grid
+------------------------- */
+.section{ padding-block: clamp(2rem, 1.5rem + 3vw, 4rem); }
+.section.soft{ background: var(--linen); }
+.grid-3{
+  display:grid; gap: var(--space-2);
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+@media (max-width: 960px){
+  .grid-3{ grid-template-columns: 1fr; }
+}
+
+.card{
+  background:#fff; border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-1);
+}
+.card h3, .card h4{ margin-bottom:.35rem; }
+.link{ color: var(--brand); font-weight:600; text-decoration:none; }
+.link:hover{ text-decoration:underline; }
+
+/* -------------------------
+   Footer (trä)
+------------------------- */
+.site-footer{
+  background: linear-gradient(180deg, var(--wood-1), var(--wood-2));
+  color:#eee;
+}
+.footer-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap: var(--space-2);
+  padding-block: 1.1rem;
+}
+.sub-nav{ display:flex; gap:1rem; }
+.sub-nav a{ color:#f1e6da; text-decoration:none; }
+.sub-nav a:hover{ text-decoration:underline; }
+
+/* -------------------------
+   Rörelsepreferens
+------------------------- */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
+}
+/* ====== Variabler (hålls enkla så länge) ====== */
+:root{
+  --bg: #ead1aa;            /* din ljusa beige */
+  --sand: #e6bf7a;          /* hero-sand */
+  --wood: #4f2c1f;          /* mörk träton */
+  --wood-hi: #5b3425;
+  --accent: #b07e2b;        /* guld/brons för CTA */
+  --accent-hi: #c68d2f;
+  --ink: #2a201a;           /* mörk text */
+  --paper: #f5eadf;         /* kortbakgrund */
+  --shadow: 0 6px 20px rgba(0,0,0,.10);
+  --radius: 14px;
+}
+
+/* ====== Grundlayout ====== */
+* { box-sizing: border-box }
+html,body { height: 100% }
+body{
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font: 16px/1.5 "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.container{
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* ====== Header / trälist ====== */
+.site-header{
+  background: var(--wood);
+  color: #fff;
+}
+.header-inner{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem 0;
+}
+.brand img{ display:block }
+
+/* ====== Knappar ====== */
+.nav-actions{
+  margin-left: auto;
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
 
 .btn{
-  display:inline-block; padding:12px 18px; border-radius: 10px;
-  background: #fff; border: 1px solid #dfe3ea; text-decoration:none; color:var(--text);
-  font-weight:600;
-}
-.btn:hover{ background:#f4f6f9; }
-.btn-primary{
-  background: var(--brand); color:#fff; border: 1px solid var(--brand);
-}
-.btn-primary:hover{ background:#173a69; }
-
-/* Cards / sections */
-.card{
-  margin: 28px 0;
-}
-.card .wrap{
-  background: var(--card);
-  border-radius: var(--radius);
+  --padY: .55rem;
+  --padX: .9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  padding: var(--padY) var(--padX);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .02em;
+  border: 0;
+  outline: 0;
   box-shadow: var(--shadow);
-  padding: 28px;
+  transition: transform .08s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
+  user-select: none;
 }
-.section-title{
-  margin: 0 0 10px;
-  color: var(--brand);
-  font-size: clamp(22px, 3vw, 28px);
+
+.btn:active{ transform: translateY(1px) scale(.99) }
+.btn:focus-visible{ outline: 2px solid #fff6; outline-offset: 2px }
+
+/* Primär – mörk */
+.btn-dark{
+  background: var(--wood);
+  color: #fff;
 }
-.bullets{ margin: 12px 0 0 0; padding-left: 18px; }
-.links{ margin: 10px 0 0; padding-left: 18px; }
-.links a{ color: var(--brand); }
+.btn-dark:hover{ background: var(--wood-hi) }
 
-/* Footer */
-.site-footer{ padding: 40px 0; color: var(--muted); }
+/* Accent – CTA */
+.btn-accent{
+  background: var(--accent);
+  color: #fff;
+}
+.btn-accent:hover{ background: var(--accent-hi) }
 
-/* 404 */
-.center{ text-align:center; padding: 80px 20px; }
+/* Sekundär – ljusare variant */
+.btn-secondary{
+  background: #ffffff22;
+  color: var(--wood);
+  border: 2px solid var(--wood);
+  box-shadow: none;
+}
+.btn-secondary:hover{
+  background: var(--wood);
+  color: #fff;
+}
 
-/* Print (PDF via webbläsaren) */
-@media print{
-  .site-header, .site-footer, .nav { display:none !important; }
-  .hero{ padding: 24px 0; }
-  .card .wrap{ box-shadow:none; border:1px solid #ccc; }
-  body{ background:#fff; }
+/* ====== Hero ====== */
+.hero{
+  background: linear-gradient(#0000 0 40%, #00000008), var(--sand);
+  padding: clamp(2.2rem, 4.5vw, 3.2rem) 0;
+  border-bottom: 6px solid var(--wood);
+}
+.tagline{
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: .02em;
+  font-style: italic;
+}
+
+/* ====== Innehållskort ====== */
+.main{ padding: clamp(1.2rem, 3.5vw, 2.2rem) 0 3rem }
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+}
+.card{
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2.4vw, 1.4rem);
+  box-shadow: var(--shadow);
+  border: 1px solid #00000008;
+}
+.card h2{ margin: 0 0 .75rem; font-size: 1.25rem }
+
+/* länkar i legalt-kortet */
+.linklist{
+  margin: .25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.linklist a{
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+.linklist a:hover{ text-decoration: underline }
+
+/* ====== Footer ====== */
+.site-footer{
+  background: var(--wood);
+  color: #fff;
+  border-top: 6px solid #00000012;
+}
+.foot-inner{
+  padding: .9rem 0;
+  display:flex;
+  justify-content:center;
+}
+
+/* ====== Respons ====== */
+@media (max-width: 920px){
+  .grid{ grid-template-columns: 1fr; }
+  .nav-actions{ gap: .45rem }
+  .btn{ --padY: .5rem; --padX: .8rem }
 }
