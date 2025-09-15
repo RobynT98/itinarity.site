@@ -1,59 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
+  <!-- META & ICONS -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Användarvillkor (ToS) – Itinarity</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Användarvillkor (Terms of Service) för Itinarity." />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#4a2b1a">
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Itinarity startsida">
-      <img class="logo" src="assets/logo.svg" alt="Itinarity" />
-    </a>
-    <nav class="nav-actions" aria-label="Huvudmeny">
-      <a class="btn btn-dark" href="blogg.html">Blogg</a>
-      <a class="btn btn-dark" href="kontakt.html">Kontakt</a>
-      <a class="btn btn-accent" href="blogg.html#nytt">Blogginlägg</a>
-    </nav>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="/assets/logo.svg" alt="Itinarity" height="28" />
+        <span class="brand-mark">Itinarity</span><sup class="tm">™</sup>
+      </a>
+      <nav class="main-nav" aria-label="Huvudnavigation">
+        <a class="btn btn-ghost"   href="/blog.html">Blogg</a>
+        <a class="btn btn-primary" href="/kontakt.html">Kontakt</a>
+        <a class="btn btn-ghost"   href="/posts.html">Blogginlägg</a>
+      </nav>
+    </div>
+  </header>
 
+  <!-- HERO -->
+  <section class="hero hero--thin">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Brödsmulor">
+        <a href="/">Start</a> / Juridik / <strong>Användarvillkor</strong>
+      </nav>
+      <h1>Användarvillkor (ToS)</h1>
+      <p class="muted">Senast uppdaterad: 15 september 2025</p>
+    </div>
+  </section>
 
-<section class="hero hero--thin">
-  <div class="container">
-    <nav class="breadcrumbs"><a href="index.html">Start</a> / Juridik / Användarvillkor</nav>
-    <h1>Användarvillkor (ToS)</h1>
-    <p class="muted">Senast uppdaterad: 15 september 2025</p>
-  </div>
-</section>
+  <!-- INNEHÅLL -->
+  <main class="section soft">
+    <div class="container">
+      <article class="card">
+        <h2>1. Konto & åtkomst</h2>
+        <p>Du ansvarar för att skydda dina inloggningsuppgifter och för all aktivitet som sker via ditt konto.</p>
 
-<main class="container legal space-y">
-  <article class="card">
-    <h2>1. Konto & åtkomst</h2>
-    <p>Du ansvarar för att skydda dina inloggningsuppgifter och för all aktivitet som sker via ditt konto.</p>
+        <h2>2. Priser & betalning</h2>
+        <p>Eventuella avgifter framgår vid köp. Priser kan ändras med skälig förvarning. Skol-/studentrabatter kan tillämpas.</p>
 
-    <h2>2. Priser & betalning</h2>
-    <p>Eventuella avgifter framgår vid köp. Priser kan ändras med skälig förvarning. Skol-/studentrabatter kan tillämpas.</p>
+        <h2>3. Innehåll</h2>
+        <p>Du äger ditt innehåll. Du ger oss en begränsad teknisk licens att lagra/bearbeta material för att leverera tjänsten.</p>
 
-    <h2>3. Innehåll</h2>
-    <p>Du äger ditt innehåll. Du ger oss en begränsad teknisk licens att lagra/bearbeta material för att leverera tjänsten.</p>
+        <h2>4. Missbruk</h2>
+        <p>Otillåtet bruk (t.ex. skadlig kod, intrång eller trakasserier) kan leda till avstängning.</p>
 
-    <h2>4. Missbruk</h2>
-    <p>Otillåtet bruk (t.ex. skadlig kod, intrång eller trakasserier) kan leda till avstängning.</p>
+        <h2>5. Ansvar & upphörande</h2>
+        <p>Tjänsten tillhandahålls i befintligt skick. Vid avtalbrott kan vi avsluta eller begränsa tillgången.</p>
 
-    <h2>5. Ansvar & upphörande</h2>
-    <p>Tjänsten tillhandahålls i befintligt skick. Vid avtalbrott kan vi avsluta eller begränsa tillgången.</p>
+        <h2>6. Ändringar</h2>
+        <p>Villkoren kan uppdateras. Fortsatt användning efter ändring innebär att du accepterar den uppdaterade versionen.</p>
+      </article>
+    </div>
+  </main>
 
-    <h2>6. Ändringar</h2>
-    <p>Villkoren kan uppdateras. Fortsatt användning efter ändring innebär att du accepterar den uppdaterade versionen.</p>
-  </article>
-</main>
-
-<footer class="site-footer">
-  <div class="container"><p>© 2025 Itinarity. All rights reserved.</p></div>
-</footer>
-<script src="script.js"></script>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© 2025 Itinarity. All rights reserved.</small>
+      <nav class="sub-nav" aria-label="Sidfot-navigering">
+        <a href="/eula.html">EULA</a>
+        <a href="/terms.html">ToS</a>
+        <a href="/privacy.html">Integritet</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

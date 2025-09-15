@@ -1,77 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
+  <!-- =========================================================
+       DOKUMENT & METADATA
+  ========================================================== -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Itinarity – Snabb, Kreativ, Smart och innovativ</title>
-  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Itinarity – Snabb, kreativ, smart och innovativ</title>
+  <meta name="description" content="Itinarity är ett kreativt verktyg för dokument, presentationer och design. Snabbt, flexibelt och innovativt." />
+
+  <!-- =========================================================
+       FAVICONS & APP-IKONER
+       (alla filer ligger i /assets – uppdatera vägar om du ändrar)
+  ========================================================== -->
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="96x96"  href="/assets/icon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+  <meta name="theme-color" content="#4a2b1a">
+  <meta name="apple-mobile-web-app-title" content="Itinarity">
+  <meta name="application-name" content="Itinarity">
+
+  <!-- =========================================================
+       STILAR
+       (se styles.css där allt är uppdelat & kommenterat)
+  ========================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Byt typsnitt fritt – matchar tokens i styles.css -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
+
 <body>
-  <!-- HEADER -->
-  <header class="site-header">
+  <!-- =========================================================
+       HEADER (Trälist + brand + primära knappar)
+  ========================================================== -->
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Itinarity startsida">
-        <img class="logo" src="assets/logo.svg" alt="Itinarity" />
+      <!-- Logotyp/brand – byt gärna till enbart SVG om du vill -->
+      <a class="brand" href="/" aria-label="Itinarity startsida">
+        <img src="/assets/logo.svg" alt="Itinarity" height="28" width="auto" decoding="async" />
+        <span class="brand-mark" aria-hidden="true">Itinarity</span>
+        <sup class="tm" aria-hidden="true">™</sup>
       </a>
-      <nav class="nav-actions" aria-label="Huvudmeny">
-        <a class="btn btn-dark" href="blogg.html">Blogg</a>
-        <a class="btn btn-dark" href="kontakt.html">Kontakt</a>
-        <a class="btn btn-accent" href="blogg.html#nytt">Blogginlägg</a>
+
+      <!-- Primära knappar i top-nav (inga knappar inne i korten) -->
+      <nav class="main-nav" aria-label="Huvudnavigation">
+        <a class="btn btn-ghost"   href="/blog.html">Blogg</a>
+        <a class="btn btn-primary" href="/contact.html">Kontakt</a>
+        <a class="btn btn-ghost"   href="/posts.html">Blogginlägg</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" role="banner">
-    <div class="container">
-      <h1 class="tagline">“Snabb, Kreativ, Smart och innovativ”</h1>
+  <!-- =========================================================
+       HERO (Sand / tagline)
+  ========================================================== -->
+  <section class="hero" role="region" aria-label="Introduktion">
+    <div class="container hero-inner">
+      <h1>“Snabb, Kreativ, Smart och innovativ”</h1>
+      <p class="lead">
+        Itinarity kombinerar enkelheten hos presentationsverktyg med flexibiliteten hos
+        design- och dokumentverktyg – allt i ett. Fokus på fart, struktur och kreativ frihet.
+      </p>
+      <!-- Vill du ha CTA-knappar här – lägg till under.
+      <div class="cta">
+        <a class="btn btn-primary" href="/download.html">Ladda ned</a>
+        <a class="btn btn-ghost"   href="/docs.html">Läs mer</a>
+      </div> -->
     </div>
   </section>
 
-  <!-- CONTENT -->
-  <main class="main">
-    <div class="container grid">
-      <article class="card">
-        <h2>Roadmap</h2>
-        <ul>
-          <li>Koppling till databas (Supabase) för att spara projekt.</li>
-          <li>Fler exportformat (DOCX), delbara länkar.</li>
-          <li>Stöd för skollicenser (rabatterade planer).</li>
-          <li>Grundmallar för resplaner och presentationer.</li>
-        </ul>
-      </article>
+  <!-- =========================================================
+       HUVUDINNEHÅLL – TRE KORT
+       1) Roadmap  2) Funktioner (MVP)  3) Juridiskt
+  ========================================================== -->
+  <main id="main" class="section soft" role="main">
+    <div class="container">
+      <div class="grid-3">
 
-      <article class="card">
-        <h2>Funktioner (MVP)</h2>
-        <ul>
-          <li>Skapa &amp; redigera slides med text, bilder och mallar.</li>
-          <li>Exportera till PDF (och senare PPTX).</li>
-          <li>Responsiv design – funkar lika bra på mobil som dator.</li>
-          <li>Tydlig mappstruktur för projekt &amp; offers.</li>
-        </ul>
-        <div style="margin-top:.75rem; display:flex; gap:.5rem; flex-wrap:wrap;">
-          <a class="btn btn-secondary" href="blogg.html">Läs mer i bloggen</a>
-          <a class="btn btn-accent" href="kontakt.html">Kontakta oss</a>
-        </div>
-      </article>
+        <!-- ---- Roadmap --------------------------------------------------- -->
+        <article class="card" aria-labelledby="roadmap-title">
+          <h2 id="roadmap-title">Roadmap</h2>
+          <ul class="space-y">
+            <li>Koppling till databas (Supabase) för att spara projekt.</li>
+            <li>Fler exportformat (DOCX), delbara länkar.</li>
+            <li>Stöd för skollicenser (rabatterade planer).</li>
+            <li>Grundmallar för resplaner och presentationer.</li>
+          </ul>
+        </article>
 
-      <aside class="card">
-        <h2>Juridiskt</h2>
-        <ul class="linklist">
-          <li><a class="link" href="eula.html">Slutanvändaravtal (EULA)</a></li>
-          <li><a class="link" href="terms.html">Användarvillkor (ToS)</a></li>
-          <li><a class="link" href="privacy.html">Integritetspolicy</a></li>
-        </ul>
-      </aside>
+        <!-- ---- Funktioner (MVP) ------------------------------------------ -->
+        <article class="card" aria-labelledby="mvp-title">
+          <h2 id="mvp-title">Funktioner (MVP)</h2>
+          <ul class="space-y">
+            <li>Skapa &amp; redigera slides med text, bilder och mallar.</li>
+            <li>Exportera till PDF (och senare PPTX).</li>
+            <li>Responsiv design – funkar lika bra på mobil som dator.</li>
+            <li>Tydlig mappstruktur för projekt &amp; offers.</li>
+          </ul>
+          <!-- OBS: inga knappar här – knapparna finns i top-naven -->
+        </article>
+
+        <!-- ---- Juridiskt -------------------------------------------------- -->
+        <section class="card" aria-labelledby="legal-title">
+          <h2 id="legal-title">Juridiskt</h2>
+          <ul class="linklist">
+            <li><a href="/eula.html">Slutanvändaravtal (EULA)</a></li>
+            <li><a href="/terms.html">Användarvillkor (ToS)</a></li>
+            <li><a href="/privacy.html">Integritetspolicy</a></li>
+          </ul>
+        </section>
+
+      </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container foot-inner">
+  <!-- =========================================================
+       FOOTER (Trälist)
+  ========================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
       <small>© 2025 Itinarity. All rights reserved.</small>
+      <nav class="sub-nav" aria-label="Sidfot-navigering">
+        <a href="/eula.html">EULA</a>
+        <a href="/terms.html">ToS</a>
+        <a href="/privacy.html">Integritet</a>
+      </nav>
     </div>
   </footer>
+
+  <!-- =========================================================
+       (VALFRITT) LITEN SCRIPT-YTA
+       – lägg minimal JS här (t.ex. meny, små effekter). Tom tills vidare.
+  ========================================================== -->
+  <script src="/script.js" defer></script>
 </body>
 </html>

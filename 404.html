@@ -1,144 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
+  <!-- META & ICONS -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>404 – Hittar inte sidan | Itinarity</title>
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sidan hittades inte – Itinarity</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#4a2b1a">
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
   <style>
-    /* Lokal pynt för 404 */
-    .notfound {
-      min-height: calc(100dvh - 180px);
-      display: grid;
-      place-items: center;
-      padding: clamp(24px, 5vw, 48px) 0;
-    }
-    .nf-card {
-      background: var(--paper, #f7efe7);
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 16px;
-      box-shadow: 0 14px 30px rgba(0,0,0,.12);
-      width: min(900px, 94vw);
-      padding: clamp(18px, 3.5vw, 32px);
-      text-align: center;
-    }
-    .nf-hero {
-      display: grid; gap: 10px; justify-items: center;
-      margin-bottom: clamp(12px, 2.5vw, 20px);
-    }
-    .nf-hero h1{
-      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-      margin: 0;
-    }
-    .nf-hero p{ margin: 0; opacity: .85 }
-    .nf-illu {
-      width: 180px; height: 120px; margin-bottom: 6px;
-      opacity:.95
-    }
-    .nf-actions{
-      display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center;
-      margin-top: clamp(10px, 2vw, 16px);
-    }
-    .nf-search{
-      margin-top: 10px;
-      display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap;
-    }
-    .nf-search input{
-      width: min(520px, 80vw);
-      border: 1px solid rgba(0,0,0,.18);
-      border-radius: 10px;
-      padding: .7rem .9rem;
-      background: #fffaf6;
-      font-size: 1rem;
-    }
-    .nf-links{
-      margin-top: 14px; font-size: .95rem; opacity:.85
-    }
-    .nf-links a{ text-decoration: underline; }
+    /* Extra krydda för stora 404-siffran */
+    .big-404{ font-family: var(--font-display, Georgia); font-size: clamp(4rem, 10vw, 7rem); line-height:1; }
   </style>
 </head>
 <body>
-  <!-- HEADER (samma som på andra sidor) -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Itinarity startsida">
-        <img class="logo" src="assets/logo.svg" alt="Itinarity" />
+      <a class="brand" href="/">
+        <img src="/assets/logo.svg" alt="Itinarity" height="28" />
+        <span class="brand-mark">Itinarity</span><sup class="tm">™</sup>
       </a>
-      <nav class="nav-actions" aria-label="Huvudmeny">
-        <a class="btn btn-dark" href="blogg.html">Blogg</a>
-        <a class="btn btn-dark" href="kontakt.html">Kontakt</a>
-        <a class="btn btn-accent" href="blogg.html#nytt">Blogginlägg</a>
+      <nav class="main-nav" aria-label="Huvudnavigation">
+        <a class="btn btn-ghost"   href="/blog.html">Blogg</a>
+        <a class="btn btn-primary" href="/kontakt.html">Kontakt</a>
+        <a class="btn btn-ghost"   href="/posts.html">Blogginlägg</a>
       </nav>
     </div>
   </header>
 
-  <!-- 404 INNEHÅLL -->
-  <main class="notfound">
-    <section class="nf-card">
-      <!-- Liten svg-illustration (kompass som tappat norr) -->
-      <svg class="nf-illu" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ddb173"/>
-            <stop offset="100%" stop-color="#cfa166"/>
-          </linearGradient>
-        </defs>
-        <circle cx="100" cy="70" r="52" fill="url(#g1)" stroke="#4a2b1a" stroke-width="3"/>
-        <circle cx="100" cy="70" r="3" fill="#4a2b1a"/>
-        <g transform="rotate(-18,100,70)">
-          <path d="M100 28 L108 70 L100 112 L92 70 Z" fill="#4a2b1a" opacity=".9"/>
-          <path d="M100 40 L104 70 L100 100 L96 70 Z" fill="#fff" opacity=".85"/>
-        </g>
-        <text x="100" y="132" text-anchor="middle" font-size="16" fill="#4a2b1a" font-family="system-ui, -apple-system, Segoe UI, Roboto">404</text>
-      </svg>
+  <!-- HERO -->
+  <section class="hero hero--thin">
+    <div class="container">
+      <h1>Hoppsan! Något gick vilse.</h1>
+      <p class="lead">Sidan du letade efter finns inte, eller så har länken fått resfeber.</p>
+    </div>
+  </section>
 
-      <div class="nf-hero">
-        <h1>Vi tappade kompassen.</h1>
-        <p>Sidan du försöker nå finns inte (än). Låt oss hitta rätt väg.</p>
-      </div>
-
-      <div class="nf-actions">
-        <a class="btn btn-dark" href="index.html">Till startsidan</a>
-        <a class="btn btn-secondary" href="blogg.html">Gå till bloggen</a>
-        <a class="btn btn-accent" href="kontakt.html">Kontakta oss</a>
-      </div>
-
-      <!-- Enkel “sök” som filtrerar länkar på sidan (client-side) -->
-      <div class="nf-search">
-        <input id="q" type="search" placeholder="Sök efter ‘EULA’, ‘Roadmap’, ‘Kontakt’ …" aria-label="Sök på sidan">
-        <button class="btn btn-dark" id="qbtn">Sök</button>
-      </div>
-
-      <p class="nf-links">Eller rapportera en trasig länk: 
-        <a href="mailto:support@itinarity.app?subject=BROKEN%20LINK%20%7C%20404&body=Hej%20Itinarity%2C%0A%0AJag%20fick%20en%20404%20p%C3%A5%3A%20%5Bklistra%20in%20URL%5D%0A%0A%2F%2F%20Valfritt%3A%20vad%20letade%20du%20efter%3F%0A%0AH%C3%A4lsningar%2C%0A">support@itinarity.app</a>.
-      </p>
-    </section>
+  <!-- 404-KORT -->
+  <main class="section soft">
+    <div class="container">
+      <article class="card" style="text-align:center; padding:3rem 2rem">
+        <div class="big-404">404</div>
+        <p>Vi hittar inte det du söker. Prova att gå tillbaka till startsidan eller öppna bloggen.</p>
+        <div class="cta" style="margin-top:1rem">
+          <a class="btn btn-primary" href="/">Till startsidan</a>
+          <a class="btn btn-ghost" href="/blog.html">Till bloggen</a>
+        </div>
+      </article>
+    </div>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container foot-inner">
+    <div class="container footer-inner">
       <small>© 2025 Itinarity. All rights reserved.</small>
+      <nav class="sub-nav" aria-label="Sidfot-navigering">
+        <a href="/eula.html">EULA</a>
+        <a href="/terms.html">ToS</a>
+        <a href="/privacy.html">Integritet</a>
+      </nav>
     </div>
   </footer>
-
-  <script>
-    // “Sök” – scrollar till första länk som matchar text i huvudmeny/kort/legals
-    (function(){
-      const input = document.getElementById('q');
-      const btn = document.getElementById('qbtn');
-      function go(){
-        const term = (input.value || '').toLowerCase().trim();
-        if(!term) return;
-        const links = Array.from(document.querySelectorAll('a[href]'));
-        const match = links.find(a => a.textContent.toLowerCase().includes(term));
-        if(match){ window.location.href = match.getAttribute('href'); }
-        else { alert('Hittade inget som matchar: ' + term); }
-      }
-      btn?.addEventListener('click', go);
-      input?.addEventListener('keydown', e => { if(e.key === 'Enter') go(); });
-    })();
-  </script>
 </body>
 </html>

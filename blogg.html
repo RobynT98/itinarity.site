@@ -1,61 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
+  <!-- META & ICONS -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blogg – Itinarity</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Itinaritys blogg – uppdateringar, bakom kulisserna och nyheter." />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#4a2b1a">
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <!-- HEADER (samma som index) -->
   <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Itinarity startsida">
-      <img class="logo" src="assets/logo.svg" alt="Itinarity" />
-    </a>
-    <nav class="nav-actions" aria-label="Huvudmeny">
-      <a class="btn btn-dark" href="blogg.html">Blogg</a>
-      <a class="btn btn-dark" href="kontakt.html">Kontakt</a>
-      <a class="btn btn-accent" href="blogg.html#nytt">Blogginlägg</a>
-    </nav>
-  </div>
-</header>
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="/assets/logo.svg" alt="Itinarity" height="28" />
+        <span class="brand-mark">Itinarity</span><sup class="tm">™</sup>
+      </a>
+      <nav class="main-nav" aria-label="Huvudnavigation">
+        <a class="btn btn-ghost"   href="/blog.html" aria-current="page">Blogg</a>
+        <a class="btn btn-primary" href="/kontakt.html">Kontakt</a>
+        <a class="btn btn-ghost"   href="/posts.html">Blogginlägg</a>
+      </nav>
+    </div>
+  </header>
 
-
+  <!-- HERO -->
   <section class="hero hero--thin">
     <div class="container">
+      <nav class="breadcrumbs" aria-label="Brödsmulor">
+        <a href="/">Start</a> / <strong>Blogg</strong>
+      </nav>
       <h1>Blogg</h1>
-      <p class="lead">Nyheter, idéer och arbetet bakom Itinarity.</p>
+      <p class="lead">Nyheter, utvecklingslogg och bakom kulisserna kring Itinarity.</p>
     </div>
   </section>
 
-  <main class="container space-y">
-    <div class="grid grid-3">
-      <article class="card post-preview">
-        <h2><a href="#">MVP: från idé till första klick</a></h2>
+  <!-- LISTA MED INLÄGG (dummy-länkar—byt till dina poster) -->
+  <main class="section soft">
+    <div class="container grid-3">
+      <article class="card">
+        <h2><a class="link" href="/post-hello.html">Hej världen – vi bygger Itinarity</a></h2>
         <p class="muted">15 sep 2025 • 3 min</p>
-        <p>En snabb genomgång av våra första moduler och hur vi tänker kring mallar, export och samarbete.</p>
-        <a class="link" href="#">Läs mer →</a>
+        <p>Vi kombinerar det bästa från dokument, presentationer och design till ett snabbare, friare arbetsflöde…</p>
+        <p><a class="link" href="/post-hello.html">Läs mer →</a></p>
       </article>
-      <article class="card post-preview">
-        <h2><a href="#">Designsystem: trä, sand & papper</a></h2>
-        <p class="muted">12 sep 2025 • 2 min</p>
-        <p>Varför vi valt varma material, hur det påverkar typografi, knappar och kontrast.</p>
-        <a class="link" href="#">Läs mer →</a>
+
+      <article class="card">
+        <h2><a class="link" href="/post-roadmap.html">Roadmap: vad som kommer härnäst</a></h2>
+        <p class="muted">22 sep 2025 • 4 min</p>
+        <p>Stöd för skollicenser, export till DOCX och delbara länkar finns på tur. Här är fler detaljer…</p>
+        <p><a class="link" href="/post-roadmap.html">Läs mer →</a></p>
       </article>
-      <article class="card post-preview" id="nytt">
-        <h2><a href="#">Roadmap Q4</a></h2>
-        <p class="muted">10 sep 2025 • 4 min</p>
-        <p>Vad som är på gång: skollicenser, fler exportformat och ett smidigt sätt att dela offers.</p>
-        <a class="link" href="#">Läs mer →</a>
+
+      <article class="card">
+        <h2><a class="link" href="/post-design.html">Designval: trä, sand och typografi</a></h2>
+        <p class="muted">30 sep 2025 • 2 min</p>
+        <p>Vi vill ha värme och personlighet – därför valde vi en jordnära palett med hög läsbarhet…</p>
+        <p><a class="link" href="/post-design.html">Läs mer →</a></p>
       </article>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Itinarity. All rights reserved.</p>
+    <div class="container footer-inner">
+      <small>© 2025 Itinarity. All rights reserved.</small>
+      <nav class="sub-nav" aria-label="Sidfot-navigering">
+        <a href="/eula.html">EULA</a>
+        <a href="/terms.html">ToS</a>
+        <a href="/privacy.html">Integritet</a>
+      </nav>
     </div>
   </footer>
-  <script src="script.js"></script>
 </body>
 </html>
