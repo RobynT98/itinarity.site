@@ -1,83 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <!-- META & ICONS -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blogginlägg – Itinarity</title>
-  <meta name="description" content="Alla blogginlägg från Itinarity – arkiv och senaste nytt." />
-  <link rel="icon" href="/assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
-  <link rel="manifest" href="/assets/site.webmanifest">
+  <title>Alla inlägg – Itinarity</title>
+  <meta name="description" content="Arkiv över alla bloggposter från Itinarity." />
+
+  <!-- Ikoner & manifest -->
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="assets/site.webmanifest">
   <meta name="theme-color" content="#4a2b1a">
-  <!-- Fonts & CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Stilar -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- HEADER -->
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">
-        <img src="/assets/logo.svg" alt="Itinarity" height="28" />
-        <span class="brand-mark">Itinarity</span><sup class="tm">™</sup>
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Itinarity" />
+        <span class="brand-name">Itinarity</span><sup class="tm">™</sup>
       </a>
-      <nav class="main-nav" aria-label="Huvudnavigation">
-        <a class="btn btn-ghost"   href="/blog.html">Blogg</a>
-        <a class="btn btn-primary" href="/kontakt.html">Kontakt</a>
-        <a class="btn btn-ghost"   href="/posts.html" aria-current="page">Blogginlägg</a>
-      </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero hero--thin">
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Brödsmulor">
-        <a href="/">Start</a> / <strong>Blogginlägg</strong>
-      </nav>
-      <h1>Blogginlägg</h1>
-      <p class="lead">Arkiv över alla publicerade poster.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1 class="tagline">Alla inlägg</h1>
+      <p class="lead">Här hittar du hela arkivet av blogginlägg från start till nu.</p>
     </div>
   </section>
 
-  <!-- LISTA / ARKIV -->
-  <main class="section soft">
-    <div class="container grid-3">
-      <!-- Lägg in poster här, eller länka till enskilda post-sidor -->
-      <article class="card">
-        <h2><a class="link" href="/post-hello.html">Hej världen – vi bygger Itinarity</a></h2>
-        <p class="muted">15 sep 2025</p>
-        <p>En kort introduktion till vad vi vill skapa och hur vi tänker kring verktyget…</p>
-      </article>
-
-      <article class="card">
-        <h2><a class="link" href="/post-roadmap.html">Roadmap: vad som kommer härnäst</a></h2>
-        <p class="muted">22 sep 2025</p>
-        <p>Planerade funktioner, licenser och exportformat – här är en snabb översikt…</p>
-      </article>
-
-      <article class="card">
-        <h2><a class="link" href="/post-design.html">Designval: trä, sand och typografi</a></h2>
-        <p class="muted">30 sep 2025</p>
-        <p>Varför vi valde en varm och läsbar stil. Tankar kring identiteten…</p>
-      </article>
+  <!-- Subnav -->
+  <nav class="subnav" aria-label="Huvudnavigering">
+    <div class="container subnav-inner">
+      <a class="nav-btn" href="blogg.html" data-match="blogg">Blogg</a>
+      <a class="nav-btn" href="kontakt.html" data-match="kontakt">Kontakt</a>
+      <a class="nav-btn" href="posts.html" data-match="posts">Blogginlägg</a>
     </div>
+  </nav>
+
+  <!-- Huvudinnehåll -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <article class="card">
+          <h2><a class="link" href="post-hello.html">Hej världen!</a></h2>
+          <p class="muted">Vårt första inlägg – en presentation av projektet och våra mål.</p>
+          <time datetime="2025-01-15" class="muted">15 januari 2025</time>
+        </article>
+
+        <article class="card">
+          <h2><a class="link" href="post-roadmap.html">Roadmap 2025</a></h2>
+          <p class="muted">En överblick över våra planer för året.</p>
+          <time datetime="2025-02-01" class="muted">1 februari 2025</time>
+        </article>
+
+        <article class="card">
+          <h2><a class="link" href="post-design.html">Design & UX</a></h2>
+          <p class="muted">Varför trä, sand och papper är grunden för vår design.</p>
+          <time datetime="2025-02-20" class="muted">20 februari 2025</time>
+        </article>
+
+      </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <small>© 2025 Itinarity. All rights reserved.</small>
-      <nav class="sub-nav" aria-label="Sidfot-navigering">
-        <a href="/eula.html">EULA</a>
-        <a href="/terms.html">ToS</a>
-        <a href="/privacy.html">Integritet</a>
+      <nav class="sub-links" aria-label="Sidfot">
+        <a href="eula.html">EULA</a>
+        <a href="terms.html">ToS</a>
+        <a href="privacy.html">Integritet</a>
+        <a href="#" id="manage-cookies">Hantera cookies</a>
       </nav>
     </div>
   </footer>
+
+  <!-- Cookie-banner + modal -->
+  <div id="cookie-banner" class="cookie-banner" hidden>
+    <div class="cookie-inner">
+      <div>
+        <div class="cookie-title">Cookies</div>
+        <div class="muted">Vi använder cookies för att förbättra upplevelsen. <a class="link" href="privacy.html">Läs mer</a>.</div>
+      </div>
+      <div class="cookie-actions">
+        <button id="cc-decline" class="btn btn-ghost">Avvisa</button>
+        <button id="cc-customize" class="btn btn-ghost">Anpassa</button>
+        <button id="cc-accept" class="btn btn-accent">Acceptera</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookie-modal" class="cookie-modal" aria-hidden="true">
+    <div class="cookie-card">
+      <h2>Cookie-inställningar</h2>
+      <p class="muted">Nödvändiga cookies används alltid. Välj övriga nedan.</p>
+      <div class="cookie-options">
+        <label class="cookie-option muted"><input type="checkbox" checked disabled> Nödvändiga</label>
+        <label class="cookie-option"><input id="cc-analytics" type="checkbox"> Analys</label>
+        <label class="cookie-option"><input id="cc-ads" type="checkbox"> Marknadsföring/Ads</label>
+      </div>
+      <div class="cookie-actions">
+        <button id="cc-save-min" class="btn btn-ghost">Spara minsta</button>
+        <button id="cc-save" class="btn btn-accent">Spara val</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="scripts.js"></script>
 </body>
 </html>

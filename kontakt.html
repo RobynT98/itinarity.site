@@ -1,112 +1,102 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <!-- META & ICONS -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Itinarity</title>
-  <meta name="description" content="Kontakta Itinarity. Frågor, feedback eller samarbeten." />
-  <link rel="icon" href="/assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
-  <link rel="manifest" href="/assets/site.webmanifest">
-  <meta name="theme-color" content="#4a2b1a">
-  <!-- Fonts & CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- Header -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <img src="/assets/logo.svg" alt="Itinarity" height="28" />
-        <span class="brand-mark">Itinarity</span><sup class="tm">™</sup>
-      </a>
-      <nav class="main-nav" aria-label="Huvudnavigation">
-        <a class="btn btn-ghost"   href="/blog.html">Blogg</a>
-        <a class="btn btn-primary" href="/kontakt.html" aria-current="page">Kontakt</a>
-        <a class="btn btn-ghost"   href="/posts.html">Blogginlägg</a>
+    <div class="container">
+      <a href="index.html" class="logo">Itinarity</a>
+      <nav class="main-nav">
+        <a href="blogg.html">Blogg</a>
+        <a href="kontakt.html" class="active">Kontakt</a>
+        <a href="posts.html">Blogginlägg</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero hero--thin">
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-      <nav class="breadcrumbs" aria-label="Brödsmulor">
-        <a href="/">Start</a> / <strong>Kontakt</strong>
-      </nav>
       <h1>Kontakta oss</h1>
-      <p class="lead">Vi gillar bra frågor och snabb återkoppling. Skriv gärna några rader nedan.</p>
+      <p>Har du frågor eller vill samarbeta? Skicka gärna ett meddelande.</p>
     </div>
   </section>
 
-  <!-- KONTAKT – Formspree + mailto-fallback -->
-  <main class="section soft">
-    <div class="container grid-2">
-      <!-- Formulär -->
-      <section class="card" aria-labelledby="contact-form-title">
-        <h2 id="contact-form-title">Skicka ett meddelande</h2>
-        <!-- Byt YOUR_FORM_ID när du skapat Formspree-form -->
-        <form class="stack-sm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <label>
-            Ditt namn
-            <input type="text" name="name" required>
-          </label>
-          <label>
-            Din e-post
-            <input type="email" name="email" required>
-          </label>
-          <label>
-            Ämne
-            <input type="text" name="subject" required>
-          </label>
-          <label>
-            Meddelande
-            <textarea name="message" rows="6" required></textarea>
-          </label>
-          <!-- Honeypot mot bots -->
-          <input type="text" name="_gotcha" style="display:none">
-          <input type="hidden" name="_subject" value="Kontakt via itinarity.app" />
-          <button class="btn" type="submit">Skicka</button>
-        </form>
-        <p class="muted" style="margin-top:.75rem">
-          Om formuläret inte fungerar ännu: använd knappen “Skicka e-post” här bredvid.
-        </p>
-      </section>
+  <!-- Subnav -->
+  <nav class="subnav">
+    <a href="blogg.html" class="btn btn-ghost">Blogg</a>
+    <a href="kontakt.html" class="btn btn-accent active">Kontakt</a>
+    <a href="posts.html" class="btn btn-ghost">Blogginlägg</a>
+  </nav>
 
-      <!-- Snabb kontakt -->
-      <aside class="card" aria-labelledby="quick-contact-title">
-        <h2 id="quick-contact-title">Snabb kontakt</h2>
-        <p>Föredrar du e-postklienten?</p>
-        <!-- Byt till din forwardade adress -->
-        <p><a class="btn btn-ghost" href="mailto:info@itinarity.app?subject=Kontakt via webb">Skicka e-post</a></p>
+  <!-- Kontaktformulär -->
+  <main class="container">
+    <section class="card">
+      <h2>Skicka ett meddelande</h2>
+      <!-- ✅ Formspree form med ditt ID -->
+      <form action="https://formspree.io/f/mzzalpal" method="POST" class="contact-form">
+        <label>
+          Namn:
+          <input type="text" name="name" required>
+        </label>
 
-        <hr style="margin:1rem 0; opacity:.2">
+        <label>
+          E-post:
+          <input type="email" name="email" required>
+        </label>
 
-        <h3>Vanliga ärenden</h3>
-        <ul class="space-y">
-          <li>Support &amp; frågor om funktioner</li>
-          <li>Idéer/förslag på förbättringar</li>
-          <li>Samarbeten och skollicenser</li>
-        </ul>
-      </aside>
-    </div>
+        <label>
+          Meddelande:
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+
+        <button type="submit" class="btn btn-accent">Skicka</button>
+      </form>
+
+      <!-- ✨ Fallback: mailto-länk om Formspree inte skulle funka -->
+      <p class="fallback">
+        Om formuläret inte fungerar, kontakta oss via e-post:  
+        <a href="mailto:info@itinarity.site">info@itinarity.site</a>
+      </p>
+    </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© 2025 Itinarity. All rights reserved.</small>
-      <nav class="sub-nav" aria-label="Sidfot-navigering">
-        <a href="/eula.html">EULA</a>
-        <a href="/terms.html">ToS</a>
-        <a href="/privacy.html">Integritet</a>
+    <div class="container">
+      <p>&copy; 2025 Itinarity. Alla rättigheter förbehållna.</p>
+      <nav class="footer-nav">
+        <a href="eula.html">EULA</a>
+        <a href="terms.html">Användarvillkor</a>
+        <a href="privacy.html">Integritetspolicy</a>
       </nav>
     </div>
   </footer>
+
+  <!-- Cookie-banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p>Vi använder cookies för att förbättra upplevelsen. Läs mer i <a href="privacy.html">integritetspolicyn</a>.</p>
+    <div class="cookie-buttons">
+      <button id="accept-cookies" class="btn btn-accent">Acceptera</button>
+      <button id="decline-cookies" class="btn btn-ghost">Avvisa</button>
+      <button id="customize-cookies" class="btn btn-ghost">Anpassa</button>
+    </div>
+  </div>
+  <div id="cookie-modal" class="cookie-modal" hidden>
+    <div class="cookie-modal-content">
+      <h2>Cookie-inställningar</h2>
+      <label><input type="checkbox" id="consent-analytics"> Tillåt analys-cookies</label><br>
+      <label><input type="checkbox" id="consent-marketing"> Tillåt marknadsförings-cookies</label>
+      <div class="cookie-modal-actions">
+        <button id="save-cookie-settings" class="btn btn-accent">Spara</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,143 +1,252 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <!-- =========================================================
-       DOKUMENT & METADATA
-  ========================================================== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Itinarity – Snabb, kreativ, smart och innovativ</title>
-  <meta name="description" content="Itinarity är ett kreativt verktyg för dokument, presentationer och design. Snabbt, flexibelt och innovativt." />
+  <title>Itinarity – Snabb, Kreativ, Smart och innovativ</title>
+  <meta name="description" content="Itinarity kombinerar dokument, presentationer och design – snabbt och kreativt." />
 
-  <!-- =========================================================
-       FAVICONS & APP-IKONER
-       (alla filer ligger i /assets – uppdatera vägar om du ändrar)
-  ========================================================== -->
-  <link rel="icon" href="/assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
-  <link rel="manifest" href="/assets/site.webmanifest">
-  <link rel="icon" type="image/png" sizes="96x96"  href="/assets/icon-96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+  <!-- Ikoner & manifest (ligger i /assets/) -->
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="assets/site.webmanifest">
   <meta name="theme-color" content="#4a2b1a">
-  <meta name="apple-mobile-web-app-title" content="Itinarity">
-  <meta name="application-name" content="Itinarity">
 
-  <!-- =========================================================
-       STILAR
-       (se styles.css där allt är uppdelat & kommenterat)
-  ========================================================== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Byt typsnitt fritt – matchar tokens i styles.css -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+  <!-- Stilar -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google tag + Consent Mode v2 (default: denied tills användaren väljer) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+  </script>
+  <!-- Byt till din GA4-ID när du har en (kan lämnas så här tills vidare) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
 </head>
-
 <body>
-  <!-- =========================================================
-       HEADER (Trälist + brand + primära knappar)
-  ========================================================== -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <!-- Logotyp/brand – byt gärna till enbart SVG om du vill -->
-      <a class="brand" href="/" aria-label="Itinarity startsida">
-        <img src="/assets/logo.svg" alt="Itinarity" height="28" width="auto" decoding="async" />
-        <span class="brand-mark" aria-hidden="true">Itinarity</span>
-        <sup class="tm" aria-hidden="true">™</sup>
-      </a>
 
-      <!-- Primära knappar i top-nav (inga knappar inne i korten) -->
-      <nav class="main-nav" aria-label="Huvudnavigation">
-        <a class="btn btn-ghost"   href="/blog.html">Blogg</a>
-        <a class="btn btn-primary" href="/contact.html">Kontakt</a>
-        <a class="btn btn-ghost"   href="/posts.html">Blogginlägg</a>
-      </nav>
+  <!-- TOPP: enbart brand -->
+  <header class="site-header">
+    <div class="container header-inner" aria-label="Itinarity topp">
+      <a class="brand" href="index.html" aria-label="Till startsidan">
+        <img src="assets/logo.svg" alt="Itinarity" />
+        <span class="brand-name">Itinarity</span><sup class="tm">™</sup>
+      </a>
     </div>
   </header>
 
-  <!-- =========================================================
-       HERO (Sand / tagline)
-  ========================================================== -->
-  <section class="hero" role="region" aria-label="Introduktion">
+  <!-- HERO (tunn) -->
+  <section class="hero">
     <div class="container hero-inner">
-      <h1>“Snabb, Kreativ, Smart och innovativ”</h1>
+      <h1 class="tagline">“Snabb, Kreativ, Smart och innovativ”</h1>
       <p class="lead">
-        Itinarity kombinerar enkelheten hos presentationsverktyg med flexibiliteten hos
-        design- och dokumentverktyg – allt i ett. Fokus på fart, struktur och kreativ frihet.
+        Ett verktyg som förenar dokument, presentation och design – utan friktion. Skapa snabbt, dela enkelt.
       </p>
-      <!-- Vill du ha CTA-knappar här – lägg till under.
-      <div class="cta">
-        <a class="btn btn-primary" href="/download.html">Ladda ned</a>
-        <a class="btn btn-ghost"   href="/docs.html">Läs mer</a>
-      </div> -->
     </div>
   </section>
 
-  <!-- =========================================================
-       HUVUDINNEHÅLL – TRE KORT
-       1) Roadmap  2) Funktioner (MVP)  3) Juridiskt
-  ========================================================== -->
-  <main id="main" class="section soft" role="main">
-    <div class="container">
-      <div class="grid-3">
-
-        <!-- ---- Roadmap --------------------------------------------------- -->
-        <article class="card" aria-labelledby="roadmap-title">
-          <h2 id="roadmap-title">Roadmap</h2>
-          <ul class="space-y">
-            <li>Koppling till databas (Supabase) för att spara projekt.</li>
-            <li>Fler exportformat (DOCX), delbara länkar.</li>
-            <li>Stöd för skollicenser (rabatterade planer).</li>
-            <li>Grundmallar för resplaner och presentationer.</li>
-          </ul>
-        </article>
-
-        <!-- ---- Funktioner (MVP) ------------------------------------------ -->
-        <article class="card" aria-labelledby="mvp-title">
-          <h2 id="mvp-title">Funktioner (MVP)</h2>
-          <ul class="space-y">
-            <li>Skapa &amp; redigera slides med text, bilder och mallar.</li>
-            <li>Exportera till PDF (och senare PPTX).</li>
-            <li>Responsiv design – funkar lika bra på mobil som dator.</li>
-            <li>Tydlig mappstruktur för projekt &amp; offers.</li>
-          </ul>
-          <!-- OBS: inga knappar här – knapparna finns i top-naven -->
-        </article>
-
-        <!-- ---- Juridiskt -------------------------------------------------- -->
-        <section class="card" aria-labelledby="legal-title">
-          <h2 id="legal-title">Juridiskt</h2>
-          <ul class="linklist">
-            <li><a href="/eula.html">Slutanvändaravtal (EULA)</a></li>
-            <li><a href="/terms.html">Användarvillkor (ToS)</a></li>
-            <li><a href="/privacy.html">Integritetspolicy</a></li>
-          </ul>
-        </section>
-
-      </div>
+  <!-- SUBNAV – ligger mellan hero och innehåll -->
+  <nav class="subnav" aria-label="Huvudnavigering">
+    <div class="container subnav-inner">
+      <!-- OBS: RELATIVA LÄNKAR (inte /-prefix) så funkar det på Pages och custom domän -->
+      <a class="nav-btn" href="blogg.html" data-match="blogg">Blogg</a>
+      <a class="nav-btn" href="kontakt.html" data-match="kontakt">Kontakt</a>
+      <a class="nav-btn" href="posts.html" data-match="posts">Blogginlägg</a>
     </div>
+  </nav>
+
+  <!-- Huvudinnehåll -->
+  <main>
+    <!-- (valfritt) Download/kommande -->
+    <section id="download" class="section">
+      <div class="container">
+        <article class="card center">
+          <h2>Ladda ned Itinarity</h2>
+          <p class="muted" style="max-width:60ch;margin-inline:auto">
+            Programvaran bor i vårt <a class="link" href="https://github.com/DITT-USER/itinarity.app" target="_blank" rel="noopener">itinarity.app-repo</a>.
+            När första versionen släpps hamnar knapparna här.
+          </p>
+          <div class="mt-2">
+            <a class="btn btn-primary is-disabled" aria-disabled="true" title="Kommer snart">Windows</a>
+            <a class="btn btn-ghost is-disabled"   aria-disabled="true" title="Kommer snart">macOS</a>
+            <a class="btn btn-ghost is-disabled"   aria-disabled="true" title="Kommer snart">Linux</a>
+            <a class="btn btn-accent" href="https://github.com/DITT-USER/itinarity.app" target="_blank" rel="noopener">Öppna repo</a>
+          </div>
+          <p class="muted mt-2">Följ våra <a class="link" href="blogg.html">blogguppdateringar</a> för release-datum.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Tre kort -->
+    <section class="section">
+      <div class="container grid-3">
+        <article class="card">
+          <h3>Roadmap</h3>
+          <ul class="space-y">
+            <li>Supabase för projektlagring</li>
+            <li>Export: PDF → DOCX → PPTX</li>
+            <li>Delbara länkar & kommentarer</li>
+            <li>Skol-/studentlicenser</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Funktioner (MVP)</h3>
+          <ul class="space-y">
+            <li>Slides med text, bilder, mallar</li>
+            <li>Snabb PDF-export</li>
+            <li>Responsiv layout (mobil & desktop)</li>
+            <li>Tydlig struktur för projekt</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Juridiskt</h3>
+          <ul class="linklist">
+            <li><a class="link" href="eula.html">Slutanvändaravtal (EULA)</a></li>
+            <li><a class="link" href="terms.html">Användarvillkor (ToS)</a></li>
+            <li><a class="link" href="privacy.html">Integritetspolicy</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <!-- =========================================================
-       FOOTER (Trälist)
-  ========================================================== -->
-  <footer class="site-footer" role="contentinfo">
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="container footer-inner">
       <small>© 2025 Itinarity. All rights reserved.</small>
-      <nav class="sub-nav" aria-label="Sidfot-navigering">
-        <a href="/eula.html">EULA</a>
-        <a href="/terms.html">ToS</a>
-        <a href="/privacy.html">Integritet</a>
+      <nav class="sub-links" aria-label="Sidfot">
+        <a href="eula.html">EULA</a>
+        <a href="terms.html">ToS</a>
+        <a href="privacy.html">Integritet</a>
+        <a href="#" id="manage-cookies">Hantera cookies</a>
       </nav>
     </div>
   </footer>
 
-  <!-- =========================================================
-       (VALFRITT) LITEN SCRIPT-YTA
-       – lägg minimal JS här (t.ex. meny, små effekter). Tom tills vidare.
-  ========================================================== -->
-  <script src="/script.js" defer></script>
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="cookie-banner" hidden>
+    <div class="cookie-inner">
+      <div>
+        <div class="cookie-title">Cookies</div>
+        <div class="muted">Vi använder cookies för att förbättra upplevelsen. <a class="link" href="privacy.html">Läs mer</a>.</div>
+      </div>
+      <div class="cookie-actions">
+        <button id="cc-decline" class="btn btn-ghost">Avvisa</button>
+        <button id="cc-customize" class="btn btn-ghost">Anpassa</button>
+        <button id="cc-accept" class="btn btn-accent">Acceptera</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie inställningar (modal) -->
+  <div id="cookie-modal" class="cookie-modal" aria-hidden="true">
+    <div class="cookie-card">
+      <h2>Cookie-inställningar</h2>
+      <p class="muted">Nödvändiga cookies används alltid. Välj övriga nedan.</p>
+
+      <div class="cookie-options">
+        <label class="cookie-option muted"><input type="checkbox" checked disabled> Nödvändiga (alltid på)</label>
+        <label class="cookie-option"><input id="cc-analytics" type="checkbox"> Analys (GA4, anonymiserad)</label>
+        <label class="cookie-option"><input id="cc-ads" type="checkbox"> Marknadsföring/Ads (AdSense)</label>
+      </div>
+
+      <div class="cookie-actions">
+        <button id="cc-save-min" class="btn btn-ghost">Spara minsta</button>
+        <button id="cc-save" class="btn btn-accent">Spara val</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav-aktiv, cookie/consent, och (senare) AdSense-laddning -->
+  <script>
+    // --- Markera aktiv knapp i subnav utifrån URL ---
+    (function(){
+      const path = location.pathname.toLowerCase();
+      document.querySelectorAll('.subnav [data-match]').forEach(a=>{
+        const key = a.getAttribute('data-match').toLowerCase();
+        if (path.includes(key)) a.classList.add('active');
+      });
+    })();
+
+    // --- Cookie/Consent minimal CMP ---
+    (function(){
+      const KEY = 'itinarity_cookie_choice_v1';
+      const $ = s => document.querySelector(s);
+      const banner = $('#cookie-banner');
+      const modal  = $('#cookie-modal');
+
+      const els = {
+        accept:   $('#cc-accept'),
+        decline:  $('#cc-decline'),
+        customize:$('#cc-customize'),
+        save:     $('#cc-save'),
+        saveMin:  $('#cc-save-min'),
+        chkA:     $('#cc-analytics'),
+        chkAds:   $('#cc-ads'),
+        manage:   $('#manage-cookies')
+      };
+
+      function choice(){ try{ return JSON.parse(localStorage.getItem(KEY) || '{}'); }catch(e){ return {}; } }
+      function save(obj){ localStorage.setItem(KEY, JSON.stringify({ ...obj, set:true, ts:Date.now() })); }
+      function showBanner(){ banner.hidden = false; }
+      function hideBanner(){ banner.hidden = true; }
+      function openModal(){ modal.setAttribute('aria-hidden','false'); const c=choice(); els.chkA.checked=!!c.analytics; els.chkAds.checked=!!c.ads; }
+      function closeModal(){ modal.setAttribute('aria-hidden','true'); }
+
+      function granted(v){ return v ? 'granted' : 'denied'; }
+      function applyConsent(c){
+        if (typeof gtag === 'function'){
+          gtag('consent', 'update', {
+            analytics_storage:  granted(!!c.analytics),
+            ad_storage:         granted(!!c.ads),
+            ad_user_data:       granted(!!c.ads),
+            ad_personalization: granted(!!c.ads)
+          });
+        }
+        // Ladda AdSense först när ads = true
+        if (c.ads) loadAdSense();
+      }
+
+      function loadAdSense(){
+        if (document.getElementById('adsbygooglejs')) return;
+        // BYT client-id när du skaffar AdSense
+        const s = document.createElement('script');
+        s.id = 'adsbygooglejs';
+        s.async = true;
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX';
+        s.crossOrigin = 'anonymous';
+        document.head.appendChild(s);
+      }
+
+      // Events
+      els.accept.addEventListener('click', ()=>{ const c={analytics:true, ads:true}; save(c); applyConsent(c); hideBanner(); });
+      els.decline.addEventListener('click', ()=>{ const c={analytics:false, ads:false}; save(c); applyConsent(c); hideBanner(); });
+      els.customize.addEventListener('click', openModal);
+      els.save.addEventListener('click', ()=>{ const c={analytics:els.chkA.checked, ads:els.chkAds.checked}; save(c); applyConsent(c); closeModal(); hideBanner(); });
+      els.saveMin.addEventListener('click', ()=>{ const c={analytics:false, ads:false}; save(c); applyConsent(c); closeModal(); hideBanner(); });
+      els.manage.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
+
+      // Init
+      window.addEventListener('DOMContentLoaded', ()=>{
+        const c = choice();
+        if (c.set){ applyConsent(c); }
+        else { showBanner(); }
+      });
+    })();
+  </script>
 </body>
 </html>

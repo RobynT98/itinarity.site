@@ -1,308 +1,237 @@
-/* ============================================================
-   ITINARITY – DESIGN SYSTEM (trä/sand/papper)
-   ------------------------------------------------------------
-   Den här filen är uppdelad i tydliga sektioner:
-   1) Tokens & Reset
-   2) Layout-bas (container, flex för footer)
-   3) Typografi
-   4) Header & Navigation
-   5) Hero
-   6) Buttons
-   7) Cards & Grid
-   8) Legal pages (EULA/ToS/Privacy)
-   9) Forms
-   10) Footer
-   11) Utilities
-   ============================================================ */
+/* ==========================================================================
+   Itinarity – styles.css
+   Struktur:
+   01) Design tokens
+   02) Bas/typografi/containers
+   03) Header (trälist) + brand
+   04) Hero (tunnare)
+   05) Subnav (ligger UNDER hero, sticky on scroll)
+   06) Buttons
+   07) Sektioner & kort (kortlayout/grids)
+   08) Footer (trälist)
+   09) Cookie Banner + Preferences modal
+   10) Hjälpklasser & responsivt
+   ========================================================================== */
 
-
-/* ============================================================
-   1) TOKENS & RESET
-   - Justera färger/typsnitt/spacing här för hela sajten.
-   ============================================================ */
-
+/* 01) DESIGN TOKENS ------------------------------------------------------- */
 :root{
-  /* Färger */
-  --wood-1: #4a2b1a;   /* mörk trä */
-  --wood-2: #633721;   /* ljusare trä */
-  --sand-1: #e2b671;   /* hero topp */
-  --sand-2: #cfa166;   /* hero botten */
-  --linen:  #ead1aa;   /* bakgrundsbeige */
-  --paper:  #f7efe7;   /* kortbakgrund */
-  --ink-1:  #1d1b19;   /* rubriker */
-  --ink-2:  #2a201a;   /* brödtext */
-  --ink-3:  #6b6764;   /* sekundär text */
+  /* Färger – trä/sand/linne/papper */
+  --wood-1: #4a2b1a;
+  --wood-2: #5a311f;
+  --sand-1: #e3ba79;
+  --sand-2: #d7aa67;
+  --linen:  #ead8c2;
+  --paper:  #fffaf4;
 
-  /* Brand/CTA */
-  --brand:      var(--wood-1);
-  --brand-ink:  #ffffff;
-  --accent:     #b8802e;    /* guld/brons */
-  --accent-hi:  #c89233;
+  /* Textfärger */
+  --ink-1: #1d1b19;  /* rubriker */
+  --ink-2: #322e2b;  /* brödtext */
+  --ink-3: #6d6763;  /* sekundär */
 
-  /* Typografi */
+  /* Brand/knappar */
+  --brand:     #4a2b1a;
+  --brand-ink: #ffffff;
+  --accent:    #c8912a;
+  --accent-ink:#ffffff;
+
+  /* UI */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-1: 0 6px 20px rgba(0,0,0,.10);
+  --shadow-2: 0 10px 30px rgba(0,0,0,.12);
+
+  /* Typsnitt */
   --font-sans: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
 
-  /* Typo-skala (flytande) */
-  --step--1: clamp(.875rem, .82rem + .2vw, .95rem);
+  /* Flytande typografi */
+  --step--1: clamp(.9rem, .85rem + .2vw, 1rem);
   --step-0:  clamp(1rem, .96rem + .25vw, 1.125rem);
-  --step-1:  clamp(1.25rem, 1.15rem + .6vw, 1.5rem);
-  --step-2:  clamp(1.5rem, 1.35rem + 1vw, 2rem);
-  --step-3:  clamp(2rem, 1.7rem + 1.8vw, 2.6rem);
+  --step-1:  clamp(1.25rem, 1.05rem + .8vw, 1.7rem);
+  --step-2:  clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);
+  --step-3:  clamp(2rem, 1.6rem + 2.2vw, 2.8rem);
 
-  /* Avstånd & UI */
-  --space-1:.5rem; --space-2:1rem; --space-3:1.5rem; --space-4:2rem; --space-6:3rem;
-  --radius: 14px; --radius-sm: 10px;
-  --shadow-1: 0 4px 14px rgba(0,0,0,.10);
-  --shadow-2: 0 10px 24px rgba(0,0,0,.12);
+  /* Spacing */
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
 
   /* Maxbredd */
   --container: 1120px;
 }
 
-/* Reset light */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font: 400 var(--step-0)/1.6 var(--font-sans);
-  color: var(--ink-2);
-  background: var(--linen);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+/* 02) BAS / TYPOGRAFI / CONTAINERS --------------------------------------- */
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  color:var(--ink-2);
+  background:var(--linen);
+  font:400 var(--step-0)/1.6 var(--font-sans);
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
 }
+img{ max-width:100%; height:auto; display:block }
 
-/* Reducera animationer vid behov */
-@media (prefers-reduced-motion: reduce){
-  * { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition:none !important; }
-}
-
-
-/* ============================================================
-   2) LAYOUT-BAS
-   - Container & flexlayout för att trycka ned footern.
-   ============================================================ */
-
-.container {
-  max-width: var(--container);
-  margin-inline: auto;
+.container{
+  max-width:var(--container);
+  margin-inline:auto;
   padding-inline: var(--space-2);
 }
 
-body {
-  display: flex;
-  min-height: 100dvh;         /* modern höjdenhet */
-  flex-direction: column;
-}
+h1,h2,h3{ color:var(--ink-1); margin:0 0 var(--space-2) }
+h1{ font-family:var(--font-display); font-size:var(--step-3); line-height:1.2 }
+h2{ font-family:var(--font-display); font-size:var(--step-2) }
+h3{ font-weight:700; font-size:var(--step-1) }
+p{ margin:0 0 var(--space-2) }
+small, .muted{ color:var(--ink-3) }
 
-.page-content {               /* <main class="page-content"> */
-  flex: 1;                    /* fyller ut -> footer hamnar längst ner */
-  padding-block: clamp(1.5rem, 1rem + 2vw, 2.5rem);
-}
-
-
-/* ============================================================
-   3) TYPOGRAFI
-   ============================================================ */
-
-h1, h2, h3, h4 { color: var(--ink-1); margin: 0 0 var(--space-2); }
-h1 { font-family: var(--font-display); font-weight:700; font-size: var(--step-3); line-height:1.15; }
-h2 { font-family: var(--font-display); font-weight:700; font-size: var(--step-2); }
-h3 { font-weight:700; font-size: var(--step-1); }
-h4 { font-weight:700; font-size: var(--step-0); }
-p  { margin: 0 0 var(--space-2); }
-
-.kicker { letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-size: var(--step--1); }
-
-
-/* ============================================================
-   4) HEADER & NAVIGATION
-   - .site-header är trälisten. Knapparna i nav använder .btn.
-   ============================================================ */
-
-.site-header {
+/* 03) HEADER (trälist) + BRAND ------------------------------------------- */
+.site-header{
   background: linear-gradient(180deg, var(--wood-2), var(--wood-1));
   color:#fff;
 }
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding-block: .85rem;
+.header-inner{
+  display:flex; align-items:center; gap:.75rem;
+  padding-block:.7rem;
 }
-
-.brand {
-  text-decoration: none; color:#fff;
-  display:flex; align-items:center; gap:.35rem;
-}
-
-.brand-text {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.15rem, .9rem + .9vw, 1.6rem);
-  letter-spacing:.02em;
-}
-
-.nav {
-  margin-left: auto;
+.brand{
   display:flex; align-items:center; gap:.6rem;
+  color:#fff; text-decoration:none;
 }
+.brand img{ width:28px; height:28px }
+.brand-name{
+  font-family:var(--font-display);
+  font-weight:700; letter-spacing:.02em;
+  font-size: clamp(1.05rem, .9rem + .9vw, 1.5rem);
+}
+.tm{ font-size:.7em; opacity:.85 }
 
-.nav a { text-decoration: none; }
-
-
-/* ============================================================
-   5) HERO
-   - Hero har sandig gradient & tagline.
-   ============================================================ */
-
-.hero {
+/* 04) HERO (tunnare) ----------------------------------------------------- */
+.hero{
   background: linear-gradient(180deg, var(--sand-1), var(--sand-2));
-  color: var(--ink-1);
-  padding-block: clamp(2.5rem, 2rem + 4vw, 6rem);
-  border-bottom: 6px solid color-mix(in oklab, var(--wood-1) 85%, black);
+  color:var(--ink-1);
+  padding-block: clamp(1.25rem, .8rem + 2.4vw, 2.4rem); /* tunnare än tidigare */
+  border-bottom: 5px solid var(--wood-1);
 }
+.hero-inner{ text-align:center }
+.hero .lead{ max-width:60ch; margin-inline:auto; color:var(--ink-2) }
 
-.hero .container { text-align: center; }
-.tagline { font-style: italic; font-weight: 800; }
+/* 05) SUBNAV (UNDER HERO, STICKY PÅ SCROLL) ------------------------------ */
+.subnav{
+  position: sticky; top: 0; z-index: 50; /* håller sig över innehåll vid scroll */
+  background: linear-gradient(180deg, var(--wood-1), var(--wood-2));
+  border-bottom: 1px solid #00000022;
+}
+.subnav-inner{
+  display:flex; align-items:center; justify-content:center;
+  gap:.6rem; padding-block:.5rem;
+}
+.subnav a{
+  text-decoration:none; font-weight:700;
+  color:#f6eee7;
+  padding:.45rem .85rem; border-radius:10px;
+}
+.subnav a:hover{ background:#ffffff14 }
+.subnav a.active{ background:#ffffff1f; box-shadow: var(--shadow-1) }
 
-
-/* ============================================================
-   6) BUTTONS
-   - Primär, Ghost (sekundär), Accent (CTA).
-   - Byt bara variabler – funktion och interaktion består.
-   ============================================================ */
-
-.btn {
+/* 06) BUTTONS ------------------------------------------------------------- */
+.btn{
   --h: 44px;
-  display: inline-flex; align-items:center; justify-content:center;
-  min-height: var(--h); padding: 0 1rem;
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:var(--h); padding:0 1rem; gap:.5rem;
   border-radius: var(--radius-sm);
-  font-weight: 700; cursor: pointer; text-decoration: none;
-  border: 2px solid transparent;
+  font-weight:700; text-decoration:none; cursor:pointer;
+  border:2px solid transparent;
   transition: transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.btn:active{ transform: translateY(1px) }
+.btn-primary{
+  background:var(--brand); color:var(--brand-ink);
   box-shadow: var(--shadow-1);
 }
-
-.btn:active { transform: translateY(1px); }
-.btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
-
-.btn-primary {
-  background: var(--brand); color: var(--brand-ink);
-}
-.btn-primary:hover { box-shadow: var(--shadow-2); }
-
-.btn-ghost {
-  color: var(--brand);
-  background: transparent;
+.btn-primary:hover{ box-shadow: var(--shadow-2) }
+.btn-ghost{
+  color:var(--brand); background:transparent;
   border-color: color-mix(in oklab, var(--brand) 30%, white);
-  box-shadow: none;
 }
-.btn-ghost:hover {
-  background: color-mix(in oklab, var(--brand) 8%, white);
-}
+.btn-ghost:hover{ background: color-mix(in oklab, var(--brand) 8%, white); }
+.btn-accent{ background:var(--accent); color:var(--accent-ink) }
+.btn-accent:hover{ filter:brightness(1.05) }
 
-.btn-accent {
-  background: var(--accent); color: #fff;
-}
-.btn-accent:hover { background: var(--accent-hi); }
+/* 07) SEKTIONER & KORT --------------------------------------------------- */
+.section{ padding-block: clamp(1.5rem, 1.2rem + 2.6vw, 3rem) }
+.section.soft{ background: var(--paper) }
 
-
-/* ============================================================
-   7) CARDS & GRID
-   - Kort-layouten för Roadmap/Funktioner/Juridik + grid för 3 kolumner.
-   ============================================================ */
-
-.card-grid {
+.grid-3{
   display:grid; gap: var(--space-2);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+@media (max-width: 960px){
+  .grid-3{ grid-template-columns: 1fr }
 }
 
-@media (max-width: 960px) {
-  .card-grid { grid-template-columns: 1fr; }
-}
-
-.card {
-  background: var(--paper);
-  border-radius: var(--radius);
+.card{
+  background:#fff; border-radius: var(--radius);
   padding: var(--space-3);
   box-shadow: var(--shadow-1);
-  border: 1px solid rgba(0,0,0,.06);
+  border:1px solid #0000000e;
 }
+.card h3{ margin-bottom:.5rem }
 
-.card h2, .card h3, .card h4 { margin-bottom: .4rem; }
-
-.link-list {
-  margin: .25rem 0 0;
-  padding: 0; list-style: none;
-}
-
-.link-list a {
-  color: var(--ink-2);
-  text-decoration: none;
-  font-weight: 700;
-}
-.link-list a:hover { text-decoration: underline; }
-
-
-/* ============================================================
-   8) LEGAL PAGES (EULA / ToS / Privacy)
-   - Sticky sidokolumn på bred skärm. Stacked på mobil.
-   ============================================================ */
-
-.legal-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: var(--space-2);
-}
-
-.legal-toc { position: sticky; top: 1rem; align-self: start; }
-
-@media (max-width: 1000px) {
-  .legal-grid { grid-template-columns: 1fr; }
-  .legal-toc { position: static; }
-}
-
-
-/* ============================================================
-   9) FORMS
-   ============================================================ */
-
-input, textarea {
-  width: 100%;
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: var(--radius-sm);
-  padding: .7rem .85rem;
-  background: #fffaf6;
-  font: inherit;
-}
-
-.stack-sm > * + * { margin-top: .75rem; }
-
-
-/* ============================================================
-   10) FOOTER
-   ============================================================ */
-
-.site-footer {
-  margin-top: var(--space-4);
+/* 08) FOOTER -------------------------------------------------------------- */
+.site-footer{
   background: linear-gradient(180deg, var(--wood-1), var(--wood-2));
-  color:#eee;
-  border-top: 6px solid #00000012;
+  color:#eee; margin-top: var(--space-6);
 }
-
-.site-footer .container {
-  padding-block: 1.1rem;
-  display:flex; align-items:center; justify-content:center;
+.footer-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap: var(--space-2); padding-block: 1rem;
 }
+.sub-links{ display:flex; gap:1rem; flex-wrap:wrap }
+.sub-links a{ color:#f1e6da; text-decoration:none }
+.sub-links a:hover{ text-decoration:underline }
 
+/* 09) COOKIE BANNER + PREFERENCES --------------------------------------- */
+/* Banner längst ned */
+.cookie-banner{
+  position: fixed; inset: auto 0 0 0; z-index: 9999;
+  background: #fff; color: var(--ink-2);
+  box-shadow: 0 -10px 30px rgba(0,0,0,.15);
+  border-top: 4px solid var(--wood-1);
+  padding: 1rem;
+}
+.cookie-inner{
+  max-width: var(--container); margin-inline:auto;
+  display: grid; gap: .9rem; grid-template-columns: 1fr auto;
+  align-items: center;
+}
+.cookie-actions{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:flex-end }
+.cookie-banner .btn{ min-height: 40px; padding: 0 .9rem }
+.cookie-title{ font-weight:800 }
 
-/* ============================================================
-   11) UTILITIES
-   - Små hjälpklasser för spacing/typografi om du vill.
-   ============================================================ */
+/* Preferences (liten modal) */
+.cookie-modal{
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,.4); display:none;
+  align-items: center; justify-content: center; padding: 1rem;
+}
+.cookie-modal[aria-hidden="false"]{ display:flex }
+.cookie-card{
+  background:#fff; color:var(--ink-2); max-width:560px; width:min(560px, 96vw);
+  border-radius: var(--radius); box-shadow: var(--shadow-2);
+  padding: var(--space-3);
+}
+.cookie-options{ display:grid; gap:.75rem; margin:.5rem 0 1rem }
+.cookie-option{ display:flex; align-items:center; gap:.75rem }
 
-.space-y > * + * { margin-top: var(--space-2); }
-.muted { color: var(--ink-3); font-size: var(--step--1); }
-.lead  { font-size: var(--step-0); }
+/* 10) HJÄLPKLASSER & RESPONSIVT ----------------------------------------- */
+.center{ text-align:center }
+.mt-2{ margin-top: var(--space-2) }
+.mt-3{ margin-top: var(--space-3) }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition:none !important }
+}
